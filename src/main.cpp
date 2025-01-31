@@ -4,6 +4,8 @@
 
 #include "uRTCLib.h"
 
+#include "menu.h"
+
 // uRTCLib rtc;
 uRTCLib rtc(0x68);
 
@@ -20,6 +22,7 @@ nixieDisplay n(CLOCK_PIN,DATA_PIN,SAMPLE_PIN);
 
 
 void setup(){
+  beginMenu();
 	n.nixieBegin(REFRESH_TIME_uS,REFRESH_DUTYCYCLE);
 	URTCLIB_WIRE.begin();
  
