@@ -40,16 +40,19 @@ void nixieDisplay::nixieBegin(
 	digitalWrite(S_PIN,HIGH);
 }
 
-void nixieDisplay::displayNixie(uint8_t a, uint8_t b ,uint8_t dot){
+void nixieDisplay::displayNixie(uint8_t a, bool ENa, uint8_t b , bool ENb,uint8_t dot){
     uint8_t Data[] = {(uint8_t)(a/10), 
                         (uint8_t)(a%10),
                         (uint8_t)(b/10),
                         (uint8_t)(b%10)};
+    uint8_t EN[] ={ENa,ENa,ENb,ENb}; 
+
 	uint16_t controlWord=0;
 
 	if(T.getClock() && !flag){
 
-		controlWord = 1 << ((9-Data[currentDigit])+6); 
+		controlWord += 1<<(currentDigit+1);
+		controlWord = EN[currentDigit] << ((9-Data[currentDigit])+6); 
 
 		controlWord += 1<<(currentDigit+1);
 

@@ -4,7 +4,7 @@
 #define BTN_PLUS  2   // Pin per il pulsante +
 #define BTN_MINUS 3   // Pin per il pulsante -
 
-RTC_DS3231 rtc;
+RTC_DS1307 rtc;
 
 // Definizione stati del menu
 enum MenuState { SHOW_TIME, CHOOSE_PARAMETER, SET_PARAMETER };

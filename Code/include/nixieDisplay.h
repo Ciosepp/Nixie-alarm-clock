@@ -13,7 +13,7 @@ class nixieDisplay
 
         void nixieBegin(long refreshTime,
                     int dutyCycle);
-        void displayNixie(uint8_t a, uint8_t b ,uint8_t dot);
+        void displayNixie(uint8_t a, bool ENa,  uint8_t b , bool ENb,uint8_t dot);
 
 	 private:
         uint8_t CK_PIN,D_PIN, S_PIN;
